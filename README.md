@@ -43,6 +43,6 @@ markdown：
 
 
 ## 致谢
-项目开发过程中参考了很多大佬的博客，比如![SkyBlog](https://github.com/yubifeng/SkyBlog)、![NBlog](https://github.com/Naccl/NBlog)等。
+项目开发过程中参考了很多大佬的博客，比如[SkyBlog](https://github.com/yubifeng/SkyBlog)、[NBlog](https://github.com/Naccl/NBlog)等。
 
 
