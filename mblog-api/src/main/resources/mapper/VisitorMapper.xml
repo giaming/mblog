@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.VisitorMapper">
+    <sql id="tableName">
+        visitor
+    </sql>
+
+    <sql id="baseColumn">
+        id,uuid,ip,ip_source,os,browser,create_time,last_time,pv,user_agent
+    </sql>
+
+    <!--查询是否存在某个uuid-->
+    <select id="hasUUID" resultType="java.lang.Integer">
+        select ifnull((select 1 from visitor where uuid=#{uuid} limit 1), 0)
+    </select>
+
+</mapper>
