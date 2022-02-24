@@ -45,5 +45,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# !**/resources/application.yml
-*.yml
+*/*/src/resources/application.yml
