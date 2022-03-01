@@ -31,9 +31,6 @@ import java.util.stream.Collectors;
 
 /**
  * 说说服务
- *
- * @author yezhiqiu
- * @date 2022/01/23
  */
 @Service
 public class TalkServiceImpl extends ServiceImpl<TalkDao, Talk> implements TalkService {

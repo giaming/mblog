@@ -35,10 +35,6 @@ import java.util.stream.Collectors;
 
 /**
  * 博客信息服务
- *
- * @author xiaojie
- * @date 2021/08/10
- * @since 2020-05-18
  */
 @Service
 public class BlogInfoServiceImpl implements BlogInfoService {

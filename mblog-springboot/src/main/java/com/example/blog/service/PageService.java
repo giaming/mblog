@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 页面服务
- *
- * @author yezhiqiu
- * @date 2021/08/07
  */
 public interface PageService extends IService<Page> {
 

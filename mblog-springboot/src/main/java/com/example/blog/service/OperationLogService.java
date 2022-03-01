@@ -8,9 +8,6 @@ import com.example.blog.vo.ConditionVO;
 
 /**
  * 操作日志服务
- *
- * @author yezhiqiu
- * @date 2021/07/29
  */
 public interface OperationLogService extends IService<OperationLog> {
 

@@ -23,9 +23,6 @@ import java.util.List;
 
 /**
  * 相册控制器
- *
- * @author yezhiqiu
- * @date 2021/08/04
  */
 @Api(tags = "相册模块")
 @RestController

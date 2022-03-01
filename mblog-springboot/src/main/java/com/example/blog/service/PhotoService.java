@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * 摄影服务
- *
- * @author yezhiqiu
- * @date 2021/08/04
  */
 public interface PhotoService extends IService<Photo> {
 

@@ -12,9 +12,6 @@ import java.util.List;
 
 /**
  * 说说服务
- *
- * @author yezhiqiu
- * @date 2022/01/23
  */
 public interface TalkService extends IService<Talk> {
 

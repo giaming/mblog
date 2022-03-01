@@ -12,9 +12,6 @@ import java.util.List;
 
 /**
  * 相册服务
- *
- * @author yezhiqiu
- * @date 2021/08/04
  */
 public interface PhotoAlbumService extends IService<PhotoAlbum> {
 

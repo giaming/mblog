@@ -36,9 +36,7 @@ import java.util.stream.Collectors;
 
 /**
  * 用户信息服务
- *
- * @author yezhiqiu
- * @date 2021/08/10
+
  */
 @Service
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao, UserInfo> implements UserInfoService {

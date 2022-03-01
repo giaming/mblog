@@ -39,9 +39,6 @@ import java.util.stream.Collectors;
 
 /**
  * 文章服务
- *
- * @author yezhiqiu
- * @date 2021/08/10
  */
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> implements ArticleService {

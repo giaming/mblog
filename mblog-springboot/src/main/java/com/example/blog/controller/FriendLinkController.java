@@ -20,9 +20,6 @@ import java.util.List;
 
 /**
  * 友链控制器
- *
- * @author yezhiqiu
- * @date 2021/07/29
  */
 @Api(tags = "友链模块")
 @RestController

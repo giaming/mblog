@@ -21,9 +21,6 @@ import java.util.List;
 
 /**
  * 标签控制器
- *
- * @author yezhiqiu
- * @date 2021/07/29
  */
 @Api(tags = "标签模块")
 @RestController

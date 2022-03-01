@@ -16,9 +16,6 @@ import java.util.List;
 
 /**
  * 页面控制器
- *
- * @author yezhiqiu
- * @date 2021/08/09
  */
 @Api(tags = "页面模块")
 @RestController

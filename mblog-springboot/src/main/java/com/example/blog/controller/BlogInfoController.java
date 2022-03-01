@@ -25,9 +25,6 @@ import javax.validation.Valid;
 
 /**
  * 博客信息控制器
- *
- * @author yezhiqiu
- * @date 2021/07/28
  */
 @Api(tags = "博客信息模块")
 @RestController

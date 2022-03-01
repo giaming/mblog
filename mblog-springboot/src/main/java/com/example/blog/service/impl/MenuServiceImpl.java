@@ -27,9 +27,6 @@ import java.util.stream.Collectors;
 
 /**
  * 菜单服务
- *
- * @author yezhiqiu
- * @date 2021/07/28
  */
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuDao, Menu> implements MenuService {

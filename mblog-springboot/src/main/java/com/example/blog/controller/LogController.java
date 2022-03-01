@@ -17,9 +17,6 @@ import java.util.List;
 
 /**
  * 日志控制器
- *
- * @author yezhiqiu
- * @date 2021/07/27
  */
 @Api(tags = "日志模块")
 @RestController

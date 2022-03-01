@@ -19,9 +19,6 @@ import java.util.Objects;
 
 /**
  * 页面服务
- *
- * @author yezhiqiu
- * @date 2021/08/07
  */
 @Service
 public class PageServiceImpl extends ServiceImpl<PageDao, Page> implements PageService {

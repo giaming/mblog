@@ -18,9 +18,6 @@ import java.util.List;
 
 /**
  * 留言控制器
- *
- * @author xiaojie
- * @date 2021/07/29
  */
 @Api(tags = "留言模块")
 @RestController

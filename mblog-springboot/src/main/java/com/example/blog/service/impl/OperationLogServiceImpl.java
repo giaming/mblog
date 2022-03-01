@@ -18,9 +18,6 @@ import java.util.List;
 
 /**
  * 操作日志服务
- *
- * @author yezhiqiu
- * @date 2021/08/08
  */
 @Service
 public class OperationLogServiceImpl extends ServiceImpl<OperationLogDao, OperationLog> implements OperationLogService {

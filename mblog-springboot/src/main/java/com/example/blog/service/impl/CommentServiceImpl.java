@@ -36,10 +36,6 @@ import java.util.stream.Collectors;
 
 /**
  * 评论服务
- *
- * @author yezhiqiu
- * @date 2021/07/31
- * @since 2020-05-18
  */
 @Service
 public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> implements CommentService {

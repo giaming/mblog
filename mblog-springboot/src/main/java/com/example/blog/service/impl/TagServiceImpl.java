@@ -25,9 +25,6 @@ import java.util.Objects;
 
 /**
  * 标签服务
- *
- * @author yezhiqiu
- * @date 2021/07/28
  */
 @Service
 public class TagServiceImpl extends ServiceImpl<TagDao, Tag> implements TagService {

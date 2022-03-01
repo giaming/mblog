@@ -28,9 +28,6 @@ import java.util.*;
 
 /**
  * 用户详细信息服务
- *
- * @author yezhiqiu
- * @date 2021/08/10
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

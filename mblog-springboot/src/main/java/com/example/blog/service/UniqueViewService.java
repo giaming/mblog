@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * 用户量统计
- *
- * @author xiaojie
- * @date 2021/07/29
  */
 public interface UniqueViewService extends IService<UniqueView> {
 

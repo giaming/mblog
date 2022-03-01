@@ -19,9 +19,6 @@ import java.util.List;
 
 /**
  * 角色控制器
- *
- * @author yezhiqiu
- * @date 2021/07/29
  */
 @Api(tags = "角色模块")
 @RestController

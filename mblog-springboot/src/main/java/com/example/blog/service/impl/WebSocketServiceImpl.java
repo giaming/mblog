@@ -32,9 +32,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * websocket服务
- *
- * @author yezhiqiu
- * @date 2021/07/28
  */
 @Data
 @Service

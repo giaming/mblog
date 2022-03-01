@@ -9,9 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 用户信息服务
- *
- * @author yezhiqiu
- * @date 2021/08/10
  */
 public interface UserInfoService extends IService<UserInfo> {
 

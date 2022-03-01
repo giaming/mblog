@@ -22,9 +22,6 @@ import java.util.List;
 
 /**
  * 友情链接服务
- *
- * @author xiaojie
- * @date 2021/08/10
  */
 @Service
 public class FriendLinkServiceImpl extends ServiceImpl<FriendLinkDao, FriendLink> implements FriendLinkService {

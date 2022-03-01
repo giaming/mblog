@@ -16,9 +16,6 @@ import java.util.List;
 
 /**
  * 照片控制器
- *
- * @author yezhiqiu
- * @date 2021/08/05
  */
 @Api(tags = "照片模块")
 @RestController

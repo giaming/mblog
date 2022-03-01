@@ -12,9 +12,6 @@ import java.util.List;
 
 /**
  * 资源服务
- *
- * @author yezhiqiu
- * @date 2021/07/29
  */
 public interface ResourceService extends IService<Resource> {
 

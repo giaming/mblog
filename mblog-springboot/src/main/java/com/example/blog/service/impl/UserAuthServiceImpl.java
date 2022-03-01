@@ -46,9 +46,6 @@ import java.util.stream.Collectors;
 
 /**
  * 用户账号服务
- *
- * @author yezhiqiu
- * @date 2021/08/10
  */
 @Service
 public class UserAuthServiceImpl extends ServiceImpl<UserAuthDao, UserAuth> implements UserAuthService {

@@ -31,9 +31,6 @@ import java.util.stream.Collectors;
 
 /**
  * 留言服务
- *
- * @author yezhiqiu
- * @date 2021/07/28
  */
 @Service
 public class MessageServiceImpl extends ServiceImpl<MessageDao, Message> implements MessageService {

@@ -7,9 +7,6 @@ import com.example.blog.vo.WebsiteConfigVO;
 
 /**
  * 博客信息服务
- *
- * @author yezhiqiu
- * @date 2021/08/09
  */
 public interface BlogInfoService {
 

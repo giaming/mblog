@@ -13,9 +13,6 @@ import java.util.List;
 
 /**
  * 留言服务
- *
- * @author yezhiqiu
- * @date 2021/07/29
  */
 public interface MessageService extends IService<Message> {
 

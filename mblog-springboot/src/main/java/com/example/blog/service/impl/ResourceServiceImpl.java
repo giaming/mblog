@@ -27,9 +27,6 @@ import java.util.stream.Collectors;
 
 /**
  * 资源服务
- *
- * @author yezhiqiu
- * @date 2021/07/28
  */
 @Service
 public class ResourceServiceImpl extends ServiceImpl<ResourceDao, Resource> implements ResourceService {

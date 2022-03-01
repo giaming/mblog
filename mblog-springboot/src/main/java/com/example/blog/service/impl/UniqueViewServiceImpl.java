@@ -26,9 +26,6 @@ import java.util.Optional;
 
 /**
  * 访问量统计服务
- *
- * @author yezhiqiu
- * @date 2021/08/06
  */
 @Service
 public class UniqueViewServiceImpl extends ServiceImpl<UniqueViewDao, UniqueView> implements UniqueViewService {
