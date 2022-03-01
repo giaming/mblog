@@ -10,11 +10,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.minzheng</groupId>
+    <groupId>com.example</groupId>
     <artifactId>blog-springboot</artifactId>
     <version>0.0.1</version>
     <name>blog</name>
-    <description>基于springboot + vue开发的前后端分离博客</description>
+    <description>基于springboot和vue开发的前后端分离博客</description>
     <packaging>jar</packaging>
 
     <properties>
