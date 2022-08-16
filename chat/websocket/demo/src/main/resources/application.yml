@@ -1,0 +1,9 @@
+server:
+  port: 20713
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  freemarker:
+    suffix: .ftl
+    charset: UTF-8
+    content-type: text/html

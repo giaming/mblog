@@ -1,0 +1,66 @@
+{
+  "groups": [
+    {
+      "name": "ws",
+      "type": "com.coding.config.AppProperties",
+      "sourceType": "com.coding.config.AppProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ws.allow-custom-requests",
+      "type": "java.lang.Boolean",
+      "description": "allowCustomRequests",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.boss-count",
+      "type": "java.lang.Integer",
+      "description": "bossCount",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.host",
+      "type": "java.lang.String",
+      "description": "host",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.ping-interval",
+      "type": "java.lang.Integer",
+      "description": "pingInterval",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.ping-timeout",
+      "type": "java.lang.Integer",
+      "description": "pingTimeout",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.port",
+      "type": "java.lang.Integer",
+      "description": "port",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.title",
+      "type": "java.lang.String",
+      "description": "title",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.upgrade-timeout",
+      "type": "java.lang.Integer",
+      "description": "upgradeTimeout",
+      "sourceType": "com.coding.config.AppProperties"
+    },
+    {
+      "name": "ws.work-count",
+      "type": "java.lang.Integer",
+      "description": "workCount",
+      "sourceType": "com.coding.config.AppProperties"
+    }
+  ],
+  "hints": []
+}
