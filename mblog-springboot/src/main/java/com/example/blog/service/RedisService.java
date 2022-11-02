@@ -485,5 +485,14 @@ public interface RedisService {
      * @return 返回集合
      */
     List<String> geoGetHash(String key, String... place);
+
+    /**
+     * 获取自增1后的 值
+     *
+     * @param key  key值
+     * @param time 过期时间
+     * @return 返回递增后结果
+     */
+    Long incrExpire(String key, long time);
 }
 

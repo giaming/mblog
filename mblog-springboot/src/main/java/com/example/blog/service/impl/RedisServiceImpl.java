@@ -315,4 +315,13 @@ public class RedisServiceImpl implements RedisService {
                 .hash(key, place);
     }
 
+    @Override
+    public Long incrExpire(String key, long time) {
+        Long count = redisTemplate.opsForValue().increment(key, 1);
+        if (count != null && count == 1) {
+            redisTemplate.expire(key, time, TimeUnit.SECONDS);
+        }
+        return count;
+    }
+
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
 import java.util.Map;
 
 
@@ -35,5 +36,10 @@ public class UploadStrategyContext {
         return uploadStrategyMap.get(UploadModeEnum.getStrategy(uploadMode)).uploadFile(file, path);
     }
 
-
+    /**
+     * 执行上传策略
+     */
+    public String executeUploadStrategy(String fileName, InputStream inputStream, String path) {
+        return uploadStrategyMap.get(UploadModeEnum.getStrategy(uploadMode)).uploadFile(fileName, inputStream, path);
+    }
 }

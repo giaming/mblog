@@ -1,5 +1,7 @@
 package com.example.blog.service.impl;
 
+import cn.hutool.core.exceptions.ExceptionUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -14,10 +16,13 @@ import com.example.blog.entity.ArticleTag;
 import com.example.blog.entity.Category;
 import com.example.blog.entity.Tag;
 import com.example.blog.enums.ArticleStatusEnum;
+import com.example.blog.enums.FileExtEnum;
+import com.example.blog.enums.FilePathEnum;
 import com.example.blog.service.ArticleService;
 import com.example.blog.service.ArticleTagService;
 import com.example.blog.service.RedisService;
 import com.example.blog.service.TagService;
+import com.example.blog.strategy.context.UploadStrategyContext;
 import com.example.blog.util.BeanCopyUtils;
 import com.example.blog.util.PageUtils;
 import com.example.blog.util.UserUtils;
@@ -32,6 +37,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -61,6 +69,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     @Autowired
     private ArticleTagService articleTagService;
 
+    @Autowired
+    private UploadStrategyContext uploadStrategyContext;
+
     @Override
     public PageResult<ArchiveDTO> listArchives() {
         Page<Article> page = new Page<>(PageUtils.getCurrent(), PageUtils.getSize());
@@ -68,7 +79,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         Page<Article> articlePage = articleDao.selectPage(page, new LambdaQueryWrapper<Article>()
                 .select(Article::getId, Article::getArticleTitle, Article::getCreateTime)
                 .orderByDesc(Article::getCreateTime)
-                .eq(Article::getIsDelete, CommonConst.FALSE)
+                .eq(Article::getIsDelete, CommonConst.FALSE)  // isDelete=0表示未删除，=1表示已删除
                 .eq(Article::getStatus, ArticleStatusEnum.PUBLIC.getStatus()));
         List<ArchiveDTO> archiveDTOList = BeanCopyUtils.copyList(articlePage.getRecords(), ArchiveDTO.class);
         return new PageResult<>(archiveDTOList, (int) articlePage.getTotal());
@@ -227,6 +238,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         if (Objects.nonNull(category)) {
             article.setCategoryId(category.getId());
         }
+        // 设置userId
         article.setUserId(UserUtils.getLoginUser().getUserInfoId());
         this.saveOrUpdate(article);
         // 保存文章标签
@@ -243,6 +255,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         // 判断分类是否存在
         Category category = categoryDao.selectOne(new LambdaQueryWrapper<Category>()
                 .eq(Category::getCategoryName, articleVO.getCategoryName()));
+        // 若分类不存在，则插入该分类
         if (Objects.isNull(category) && !articleVO.getStatus().equals(ArticleStatusEnum.DRAFT.getStatus())) {
             category = Category.builder()
                     .categoryName(articleVO.getCategoryName())
@@ -312,7 +325,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void updateArticleDelete(DeleteVO deleteVO) {
-        // 修改文章逻辑删除状态
+        // 修改文章逻辑删除状态, stream流
         List<Article> articleList = deleteVO.getIdList().stream()
                 .map(id -> Article.builder()
                         .id(id)
@@ -332,6 +345,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         // 删除文章
         articleDao.deleteBatchIds(articleIdList);
     }
+
+
 
     @Override
     public List<ArticleSearchDTO> listArticlesBySearch(ConditionVO condition) {
@@ -355,6 +370,26 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
         articleVO.setCategoryName(categoryName);
         articleVO.setTagNameList(tagNameList);
         return articleVO;
+    }
+
+    @Override
+    public List<String> exportArticles(List<Integer> articleIdList) {
+        // 查询文章信息
+        List<Article> articleList = articleDao.selectList(new LambdaQueryWrapper<Article>()
+                .select(Article::getArticleTitle, Article::getArticleContent)
+                .in(Article::getId, articleIdList));
+        // 写入文件
+        List<String> urlList = new ArrayList<>();
+        for (Article article : articleList) {
+            try (ByteArrayInputStream inputStream = new ByteArrayInputStream(article.getArticleContent().getBytes(StandardCharsets.UTF_8))) {
+                String url = uploadStrategyContext.executeUploadStrategy(article.getArticleTitle() + FileExtEnum.MD.getExtName(), inputStream, FilePathEnum.MD.getPath());
+                urlList.add(url);
+            } catch (IOException e) {
+                log.error(StrUtil.format("导出文章失败,堆栈:{}", ExceptionUtil.stacktraceToString(e)));
+                throw new BizException("导出文章失败");
+            }
+        }
+        return urlList;
     }
 
 }

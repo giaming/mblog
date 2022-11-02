@@ -74,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // 配置登录注销路径
+        // 配置登录注销路径, 拦截
         http.formLogin()
                 .loginProcessingUrl("/login")
                 .successHandler(authenticationSuccessHandler)

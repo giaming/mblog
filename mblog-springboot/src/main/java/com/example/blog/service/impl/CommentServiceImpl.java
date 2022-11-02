@@ -224,7 +224,8 @@ public class CommentServiceImpl extends ServiceImpl<CommentDao, Comment> impleme
                 emailDTO.setSubject("审核提醒");
                 emailDTO.setContent("您收到了一条新的回复，请前往后台管理页面审核");
             }
-            rabbitTemplate.convertAndSend(MQPrefixConst.EMAIL_EXCHANGE, "*", new Message(JSON.toJSONBytes(emailDTO), new MessageProperties()));
+            rabbitTemplate.convertAndSend(MQPrefixConst.EMAIL_EXCHANGE, "*",
+                    new Message(JSON.toJSONBytes(emailDTO), new MessageProperties()));
         }
     }
 

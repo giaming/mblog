@@ -1,6 +1,7 @@
 package com.example.blog.controller;
 
 
+import com.example.blog.annotation.AccessLimit;
 import com.example.blog.constant.OptTypeConst;
 import com.example.blog.dto.MessageBackDTO;
 import com.example.blog.dto.MessageDTO;
@@ -31,6 +32,7 @@ public class MessageController {
      * @param messageVO 留言信息
      * @return {@link Result <>}
      */
+    @AccessLimit(seconds = 60, maxCount = 1)
     @ApiOperation(value = "添加留言")
     @PostMapping("/messages")
     public Result<?> saveMessage(@Valid @RequestBody MessageVO messageVO) {

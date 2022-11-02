@@ -25,7 +25,7 @@ public class DeleteVO {
      */
     @NotNull(message = "id不能为空")
     @ApiModelProperty(name = "idList", value = "id列表", required = true, dataType = "List<Integer>")
-    private List<Integer> idList;
+    private List<Integer> idList;  // 可以删除多个
 
     /**
      * 状态值

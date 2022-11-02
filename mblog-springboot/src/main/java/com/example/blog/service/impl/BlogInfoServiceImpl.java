@@ -71,6 +71,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         Integer tagCount = tagDao.selectCount(null);
         // 查询访问量
         Object count = redisService.get(RedisPrefixConst.BLOG_VIEWS_COUNT);
+        // viewsCount=0 or = count
         String viewsCount = Optional.ofNullable(count).orElse(0).toString();
         // 查询网站配置
         WebsiteConfigVO websiteConfig = this.getWebsiteConfig();
@@ -96,7 +97,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         Integer messageCount = messageDao.selectCount(null);
         // 查询用户量
         Integer userCount = userInfoDao.selectCount(null);
-        // 查询文章量
+        // 查询文章量, 查询未被逻辑删除的文章
         Integer articleCount = articleDao.selectCount(new LambdaQueryWrapper<Article>()
                 .eq(Article::getIsDelete, CommonConst.FALSE));
         // 查询一周用户量
@@ -144,13 +145,14 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         WebsiteConfigVO websiteConfigVO;
         // 获取缓存数据
         Object websiteConfig = redisService.get(RedisPrefixConst.WEBSITE_CONFIG);
+        // 如果缓存中存在，则从缓存中加载，如果缓存中不存在，则从数据库汇总加载
         if (Objects.nonNull(websiteConfig)) {
             websiteConfigVO = JSON.parseObject(websiteConfig.toString(), WebsiteConfigVO.class);
         } else {
             // 从数据库中加载
             String config = websiteConfigDao.selectById(1).getConfig();
             websiteConfigVO = JSON.parseObject(config, WebsiteConfigVO.class);
-            redisService.set(RedisPrefixConst.WEBSITE_CONFIG, config);
+            redisService.set(RedisPrefixConst.WEBSITE_CONFIG, config);  // 保存在缓存中
         }
         return websiteConfigVO;
     }

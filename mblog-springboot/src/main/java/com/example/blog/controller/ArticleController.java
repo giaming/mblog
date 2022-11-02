@@ -3,6 +3,7 @@ package com.example.blog.controller;
 
 import com.example.blog.constant.OptTypeConst;
 import com.example.blog.dto.*;
+import com.example.blog.strategy.context.ArticleImportStrategyContext;
 import com.example.blog.vo.*;
 import com.example.blog.enums.FilePathEnum;
 import com.example.blog.service.ArticleService;
@@ -29,6 +30,8 @@ public class ArticleController {
     private ArticleService articleService;
     @Autowired
     private UploadStrategyContext uploadStrategyContext;
+    @Autowired
+    private ArticleImportStrategyContext articleImportStrategyContext;
 
     /**
      * 查看文章归档
@@ -197,5 +200,31 @@ public class ArticleController {
         return Result.ok();
     }
 
+    /**
+     * 导出文章
+     *
+     * @param articleIdList 文章id列表
+     * @return {@link List<String>} 文件url列表
+     */
+    @ApiOperation(value = "导出文章")
+    @ApiImplicitParam(name = "articleIdList", value = "文章id", required = true, dataType = "List<Integer>")
+    @PostMapping("/admin/articles/export")
+    public Result<List<String>> exportArticles(@RequestBody List<Integer> articleIdList) {
+        return Result.ok(articleService.exportArticles(articleIdList));
+    }
+
+    /**
+     * 导入文章
+     *
+     * @param file 文件
+     * @param type 文章类型
+     * @return {@link Result<>}
+     */
+    @ApiOperation(value = "导入文章")
+    @PostMapping("/admin/articles/import")
+    public Result<?> importArticles(MultipartFile file, @RequestParam(required = false) String type) {
+        articleImportStrategyContext.importArticles(file, type);
+        return Result.ok();
+    }
 }
 

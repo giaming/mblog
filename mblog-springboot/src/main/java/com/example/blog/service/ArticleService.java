@@ -101,4 +101,9 @@ public interface ArticleService extends IService<Article> {
      */
     void deleteArticles(List<Integer> articleIdList);
 
+    /**
+     * 导出文章
+     */
+    List<String> exportArticles(List<Integer> articleIdList);
+
 }

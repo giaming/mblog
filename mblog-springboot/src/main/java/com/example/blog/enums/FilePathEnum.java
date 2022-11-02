@@ -32,7 +32,11 @@ public enum FilePathEnum {
     /**
      * 说说图片路径
      */
-    TALK("talks/","配置图片路径");
+    TALK("talks/","配置图片路径"),
+    /**
+     * md文件路径
+     */
+    MD("markdown/", "md文件路径");
 
     /**
      * 路径

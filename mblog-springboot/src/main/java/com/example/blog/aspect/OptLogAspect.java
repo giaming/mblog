@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * 操作日志切面处理
+ * Spring AOP操作日志切面处理
  */
 @Aspect
 @Component
@@ -46,6 +46,7 @@ public class OptLogAspect {
      * @param keys      返回结果
      */
     @AfterReturning(value = "optLogPointCut()", returning = "keys")
+    @SuppressWarnings("unchecked")
     public void saveOptLog(JoinPoint joinPoint, Object keys) {
         // 获取RequestAttributes
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();

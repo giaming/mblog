@@ -11,6 +11,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
 
+import javax.annotation.Resource;
+
 import static com.example.blog.constant.MQPrefixConst.EMAIL_QUEUE;
 
 /**
@@ -26,7 +28,8 @@ public class EmailConsumer {
     @Value("${spring.mail.username}")
     private String email;
 
-    @Autowired
+//    @Autowired
+    @Resource
     private JavaMailSender javaMailSender;
 
     @RabbitHandler

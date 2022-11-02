@@ -1,6 +1,7 @@
 package com.example.blog.controller;
 
 
+import com.example.blog.annotation.AccessLimit;
 import com.example.blog.dto.UserAreaDTO;
 import com.example.blog.dto.UserBackDTO;
 import com.example.blog.dto.UserInfoDTO;
@@ -31,6 +32,7 @@ public class UserAuthController {
      * @param username 用户名
      * @return {@link Result <>}
      */
+    @AccessLimit(seconds = 60, maxCount = 1)
     @ApiOperation(value = "发送邮箱验证码")
     @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "String")
     @GetMapping("/users/code")

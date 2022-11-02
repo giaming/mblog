@@ -17,6 +17,14 @@ import java.util.stream.Collectors;
  */
 @Component
 public class AccessDecisionManagerImpl implements AccessDecisionManager {
+    /**
+     * 重写decide方法
+     * @param authentication
+     * @param o
+     * @param collection
+     * @throws AccessDeniedException
+     * @throws InsufficientAuthenticationException
+     */
     @Override
     public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> collection)
             throws AccessDeniedException, InsufficientAuthenticationException {

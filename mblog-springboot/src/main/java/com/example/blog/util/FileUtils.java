@@ -24,7 +24,7 @@ public class FileUtils {
     public static String getMd5(InputStream inputStream) {
         try {
             MessageDigest md5 = MessageDigest.getInstance("md5");
-            byte[] buffer = new byte[8192];
+            byte[] buffer = new byte[8192];  // 4KB
             int length;
             while ((length = inputStream.read(buffer)) != -1) {
                 md5.update(buffer, 0, length);

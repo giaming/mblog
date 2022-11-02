@@ -59,6 +59,7 @@ export default {
         if (valid) {
           const that = this;
           // eslint-disable-next-line no-undef
+
           var captcha = new TencentCaptcha(
             this.config.TENCENT_CAPTCHA,
             function(res) {

@@ -22,10 +22,8 @@
     <ForgetModel></ForgetModel>
     <!-- 绑定邮箱模态框 -->
     <EmailModel></EmailModel>
-    <!-- 音乐播放器 -->
-    <!-- <Player v-if="blogInfo.websiteConfig.isMusicPlayer == 1 && !isMobile" /> -->
     <!-- 聊天室 -->
-    <!-- <ChatRoom v-if="blogInfo.websiteConfig.isChatRoom == 1"></ChatRoom> -->
+    <ChatRoom v-if="blogInfo.websiteConfig.isChatRoom == 1"></ChatRoom>
   </v-app>
 </template>
 
@@ -39,8 +37,8 @@ import LoginModel from "./components/model/LoginModel";
 import RegisterModel from "./components/model/RegisterModel";
 import ForgetModel from "./components/model/ForgetModel";
 import EmailModel from "./components/model/EmailModel";
-// import Player from "./components/zw-player/player.vue";
-// import ChatRoom from "./components/ChatRoom";
+import ChatRoom from "./components/ChatRoom";
+
 export default {
   created() {
     // 获取博客信息
@@ -50,7 +48,6 @@ export default {
   },
   components: {
     TopNavBar,
-    // Player,
     SideNavBar,
     Footer,
     BackTop,
@@ -59,7 +56,7 @@ export default {
     RegisterModel,
     ForgetModel,
     EmailModel,
-    // ChatRoom
+    ChatRoom
   },
   methods: {
     getBlogInfo() {
