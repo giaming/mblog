@@ -53,8 +53,8 @@ spring:
   # 邮箱配置
   mail:
     host: smtp.qq.com
-    username: 2633622312@qq.com
-    password: abucobtqrfabdjgj
+    username: xxxx@qq.com
+    password: xxxxxx
     default-encoding: UTF-8
     port: 587
     properties:
@@ -90,16 +90,16 @@ upload:
     # 本地文件存储路径
     path: /Users/giaming/tmp/upload/
   oss:
-    url: http://mblog-project.oss-cn-shanghai.aliyuncs.com/
+    url: http://xxxxxxx-project.oss-cn-shanghai.aliyuncs.com/
     endpoint: oss-cn-shanghai.aliyuncs.com
-    accessKeyId: LTAI5tMEm9jEwEKmSvg2upcg
-    accessKeySecret: lHRK0sHIhSYyhtd5InszBhhKwjVL4j
+    accessKeyId: xxxxx
+    accessKeySecret: xxxdxxxxx
     bucketName: mblog-project
 
 
 # 网站前台域名（邮件通知用）
 website:
-  url: http://www.giaming.xyz
+  url: http://www.xxxxxxxxxx.xyz
 
 ##第三方配置信息
 #qq:
