@@ -52,8 +52,8 @@ spring:
   # 邮箱配置
   mail:
     host: smtp.qq.com
-    username: 2633622312@qq.com
-    password: abucobtqrfabdjgj
+    username: xxxxxxx@qq.com
+    password: abucobtqrfabdjgjxxxxxx
     default-encoding: UTF-8
     port: 587
     properties:
@@ -89,27 +89,14 @@ upload:
     # 本地文件存储路径
     path: /Users/giaming/tmp/upload/
   oss:
-    url: http://mblog-project.oss-cn-shanghai.aliyuncs.com/
+    url: http://xxxxxxxx-project.oss-cn-shanghai.aliyuncs.com/
     endpoint: oss-cn-shanghai.aliyuncs.com
-    accessKeyId: LTAI5tMEm9jEwEKmSvg2upcg
-    accessKeySecret: lHRK0sHIhSYyhtd5InszBhhKwjVL4j
+    accessKeyId: xxxxxxxx
+    accessKeySecret: xxxxxxx
     bucketName: mblog-project
 
 
 # 网站前台域名（邮件通知用）
 website:
-  url: http://www.giaming.xyz
+  url: http://www.xxxxx.xyz
 
-##第三方配置信息
-#qq:
-#  app-id: QQ APPID
-#  check-token-url: https://graph.qq.com/oauth2.0/me?access_token={access_token}
-#  user-info-url: https://graph.qq.com/user/get_user_info?openid={openid}&access_token={access_token}&oauth_consumer_key={oauth_consumer_key}
-
-#weibo:
-#  app-id: 微博APPID
-#  app-secret: 微博APPSECRET
-#  grant-type: authorization_code
-#  redirect-url: 微博回调地址
-#  access-token-url: https://api.weibo.com/oauth2/access_token
-#  user-info-url: https://api.weibo.com/2/users/show.json?uid={uid}&access_token={access_token}
